@@ -1,6 +1,7 @@
 /* link til data.js */
 import {facilities} from './data.js'
 
+export function renderFacilities() {
 /* Facilities */
 const facilitiesSection = document.querySelector('.facilities')
 
@@ -35,4 +36,6 @@ facilities.options.forEach(function(option) {
   facilitiesContainer.append(card);
 });
 
+facilitiesSection.append(facilitiesHeadline, facilitiesContainer);
 
+}

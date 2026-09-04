@@ -1,6 +1,8 @@
 /* link til data.js */
 import {services} from './data.js'
 
+
+export function renderServices() {
 /* service section */
 
 const servicesSection = document.querySelector('.services');
@@ -35,4 +37,5 @@ services.forEach(function(service) {
   servicesContainer.append(serviceCard);
 });
 
-
+servicesSection.append(servicesContainer);
+}

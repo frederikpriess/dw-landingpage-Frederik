@@ -1,6 +1,8 @@
 /* link til data.js */
 import {footer} from './data.js'
 
+export function renderFooter() {
+
 /* footer */
 const footerSection = document.querySelector('.footer');
 
@@ -64,3 +66,7 @@ footer.bottomLinks.forEach(function(linkText) {
 });
 
 footerBottom.append(copyright, bottomNav);
+
+footerSection.append(footerTop, footerBottom);
+
+}

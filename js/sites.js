@@ -1,6 +1,8 @@
 /* link til data.js */
 import {sites} from './data.js'
 
+export function renderSites(){
+
 /* Sites Section */
 const sitesSection = document.querySelector('.sites');
 
@@ -53,3 +55,6 @@ sites.places.forEach(function(place) {
   placeCard.append(img, name, city, link);
   placesContainer.append(placeCard);
 });
+
+sitesSection.append(sitesInfo, placesContainer);
+}

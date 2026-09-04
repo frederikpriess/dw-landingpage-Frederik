@@ -1,8 +1,10 @@
 /* link til data.js */
 import {advantages} from './data.js'
 
+export function renderAdvantages(){
+
 /* Advantages Section */
-export const advantagesSection = document.querySelector('.advantages');
+const advantagesSection = document.querySelector('.advantages');
 
 // Sektionens overskrift
 const advantagesHeadline = document.createElement('h2');
@@ -29,3 +31,6 @@ advantages.forEach(function(advantage) {
   card.append(icon, headline, text);
   advantagesContainer.append(card);
 });
+
+advantagesSection.append(advantagesHeadline, advantagesContainer);
+}

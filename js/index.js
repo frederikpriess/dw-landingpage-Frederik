@@ -1,14 +1,19 @@
-import {heroContainer} from './hero.js'
+import { renderHero } from './hero.js';
+import { renderServices } from './services.js';
+import { renderFacilities } from './facilities.js';
+import { renderSites } from './sites.js';
+import { renderAdvantages } from './advantages.js';
+import { renderFooter } from './footer.js';
 
 
 
-/* ↓↓-append-↓↓ */
+/* ↓↓ - Render metoder - ↓↓ */
 
-heroSection.append(heroContainer)
-servicesSection.append(servicesContainer);
-facilitiesSection.append(facilitiesHeadline, facilitiesContainer);
-sitesSection.append(sitesInfo, placesContainer);
-advantagesSection.append(advantagesHeadline, advantagesContainer);
-footerSection.append(footerTop, footerBottom);
+renderHero();
+renderServices();
+renderFacilities();
+renderSites();
+renderAdvantages();
+renderFooter();
 
-/*  ↑↑-append-↑↑ */
+/*  ↑↑ - Render metoder - ↑↑ */
