@@ -2,7 +2,7 @@
 import {advantages} from './data.js'
 
 /* Advantages Section */
-const advantagesSection = document.querySelector('.advantages');
+export const advantagesSection = document.querySelector('.advantages');
 
 // Sektionens overskrift
 const advantagesHeadline = document.createElement('h2');

@@ -1,4 +1,4 @@
-
+import {heroContainer} from './hero.js'
 
 
 

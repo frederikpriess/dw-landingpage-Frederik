@@ -2,7 +2,7 @@
 import {hero} from './data.js'
 
 /* Hero section */
-const heroSection = document.querySelector(".hero")
+export const heroSection = document.querySelector(".hero")
 
 /* hero container */
 const heroContainer = document.createElement('div')
