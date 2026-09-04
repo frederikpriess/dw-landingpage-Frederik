@@ -43,7 +43,40 @@ heroSection.append(heroContainer)
 
 
 /* service section */
+// --- 2. SERVICES SECTION ---
+const servicesSection = document.querySelector('.services');
 
+const servicesContainer = document.createElement('div');
+servicesContainer.classList.add('services-container');
 
+// Ret fra Data til data med lille d
+Data.services.forEach(function(service) {
+  const serviceCard = document.createElement('article');
+  serviceCard.classList.add('service-card');
+
+  const imageWrapper = document.createElement('div');
+  imageWrapper.classList.add('service-image-wrapper');
+
+  const image = document.createElement('img');
+  image.src = service.illustration;
+  image.alt = service.headline;
+  imageWrapper.append(image);
+
+  const headline = document.createElement('h2');
+  headline.textContent = service.headline;
+
+  const text = document.createElement('p');
+  text.textContent = service.text;
+
+  const link = document.createElement('a');
+  link.href = '#';
+  link.textContent = service.linktext;
+
+  // Ret fra ServiceCard til serviceCard med lille s
+  serviceCard.append(imageWrapper, headline, text, link);
+  servicesContainer.append(serviceCard);
+});
+
+servicesSection.append(servicesContainer);
 //eksempel på at udskrive alle overskrifter i services i konsollen:
 /* services.forEach(service => console.log(service.headline)) */
