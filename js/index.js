@@ -5,7 +5,8 @@ import { renderSites } from './sites.js';
 import { renderAdvantages } from './advantages.js';
 import { renderFooter } from './footer.js';
 
-
+document.querySelector(".hero").append(renderHero())
+document.querySelector(".advantages").append(renderAdvantages())
 
 /* ↓↓ - Render metoder - ↓↓ */
 
@@ -15,5 +16,6 @@ renderFacilities();
 renderSites();
 renderAdvantages();
 renderFooter();
+
 
 /*  ↑↑ - Render metoder - ↑↑ */

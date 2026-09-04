@@ -1,36 +1,22 @@
 /* link til data.js */
-import {advantages} from './data.js'
+import { advantages } from './data.js'
 
-export function renderAdvantages(){
+export function renderAdvantages() {
 
-/* Advantages Section */
-const advantagesSection = document.querySelector('.advantages');
+  // Sektionens overskrift
+  const advantagesHeadline = document.createElement('h2');
+  advantagesHeadline.textContent = 'Our Advantages';
 
-// Sektionens overskrift
-const advantagesHeadline = document.createElement('h2');
-advantagesHeadline.textContent = 'Our Advantages';
+  // Container til de 3 kort
+  const advantagesContainer = document.createElement('div');
+  advantagesContainer.classList.add('advantages-container');
 
-// Container til de 3 kort
-const advantagesContainer = document.createElement('div');
-advantagesContainer.classList.add('advantages-container');
-
-advantages.forEach(function(advantage) {
-  const card = document.createElement('article');
-  card.classList.add('advantage-card');
-
-  const icon = document.createElement('img');
-  icon.src = advantage.icon;
-  icon.alt = advantage.headline;
-
-  const headline = document.createElement('h3');
-  headline.textContent = advantage.headline;
-
-  const text = document.createElement('p');
-  text.textContent = advantage.text;
-
-  card.append(icon, headline, text);
-  advantagesContainer.append(card);
-});
-
-advantagesSection.append(advantagesHeadline, advantagesContainer);
+  advantagesContainer.innerHTML = `
+<article class="advantage-card">
+  <img src="${advantages.icon}" alt="${advantages.headline}">
+  <h3>${advantages.headline}</h3>
+  <p>${advantages.text}</p>
+</article>
+`
+  return advantagesContainer
 }
