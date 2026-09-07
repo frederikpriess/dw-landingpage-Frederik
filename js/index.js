@@ -8,23 +8,18 @@ import { renderFooter } from './footer.js';
 document.querySelector(".hero").append(renderHero())
 document.querySelector('.services').append(renderServices()); 
 document.querySelector(".facilities").append(renderFacilities())
-
-
+document.querySelector(".sites").append(renderSites())
 document.querySelector(".advantages").append(renderAdvantages())
 document.querySelector(".footer").append(renderFooter())
 
-
-
-
-
 /* ↓↓ - Render metoder - ↓↓ */
 
-renderHero();
+/* renderHero();
 renderServices();
 renderFacilities();
 renderSites();
 renderAdvantages();
 renderFooter();
-
+ */
 
 /*  ↑↑ - Render metoder - ↑↑ */

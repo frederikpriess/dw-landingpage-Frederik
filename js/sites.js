@@ -1,60 +1,42 @@
 /* link til data.js */
-import {sites} from './data.js'
+import { sites } from './data.js'
 
-export function renderSites(){
+export function renderSites() {
 
-/* Sites Section */
-const sitesSection = document.querySelector('.sites');
+  const sitesSection = document.createElement('section');
+  sitesSection.classList.add('sites');
 
-// Venstre side: Tekst og knap
-const sitesInfo = document.createElement('div');
-sitesInfo.classList.add('sites-info');
+  // Venstre side: Tekst og knap opbygget med innerHTML
+  const sitesInfo = document.createElement('div');
+  sitesInfo.classList.add('sites-info');
+  sitesInfo.innerHTML = `
+    <h2>${sites.headline}</h2>
+    <p>${sites.text}</p>
+    <a href="#" class="sites-btn">
+      <img src="${sites.btnicon}" alt="Arrow icon">
+      <span>Start</span>
+    </a>
+  `;
 
-const sitesHeadline = document.createElement('h2');
-sitesHeadline.textContent = sites.headline;
+  // Højre side: Container til stederne
+  const placesContainer = document.createElement('div');
+  placesContainer.classList.add('places-container');
 
-const sitesText = document.createElement('p');
-sitesText.textContent = sites.text;
+  sites.places.forEach(place => {
+    let placeCard = document.createElement('article');
+    placeCard.classList.add('place-card');
 
-const sitesBtn = document.createElement('a');
-sitesBtn.classList.add('sites-btn');
-sitesBtn.href = '#';
+    placeCard.innerHTML = `
+      <img src="${place.img}" alt="${place.name}">
+      <h3>${place.name}</h3>
+      <p>${place.city}</p>
+      <a href="#">View the Site</a>
+    `;
 
-const btnIcon = document.createElement('img');
-btnIcon.src = sites.btnicon;
-btnIcon.alt = 'Arrow icon';
+    placesContainer.append(placeCard);
+  });
 
-const btnText = document.createElement('span');
-btnText.textContent = 'Start';
+  sitesSection.append(sitesInfo, placesContainer);
 
-sitesBtn.append(btnIcon, btnText);
-sitesInfo.append(sitesHeadline, sitesText, sitesBtn);
-
-// Højre side: Billeder/steder i en container
-const placesContainer = document.createElement('div');
-placesContainer.classList.add('places-container');
-
-sites.places.forEach(function(place) {
-  const placeCard = document.createElement('article');
-  placeCard.classList.add('place-card');
-
-  const img = document.createElement('img');
-  img.src = place.img;
-  img.alt = place.name;
-
-  const name = document.createElement('h3');
-  name.textContent = place.name;
-
-  const city = document.createElement('p');
-  city.textContent = place.city;
-
-  const link = document.createElement('a');
-  link.href = '#';
-  link.textContent = 'View the Site';
-
-  placeCard.append(img, name, city, link);
-  placesContainer.append(placeCard);
-});
-
-sitesSection.append(sitesInfo, placesContainer);
+  return sitesSection;
 }
