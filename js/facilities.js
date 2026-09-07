@@ -24,8 +24,6 @@ export function renderFacilities() {
 facilitiesContainer.append(articleElement)
   });
 
-
-
   return facilitiesContainer
 };
 

@@ -10,13 +10,20 @@ export function renderAdvantages() {
   // Container til de 3 kort
   const advantagesContainer = document.createElement('div');
   advantagesContainer.classList.add('advantages-container');
+  advantagesContainer.append(advantagesHeadline)
 
-  advantagesContainer.innerHTML = `
-<article class="advantage-card">
-  <img src="${advantages.icon}" alt="${advantages.headline}">
-  <h3>${advantages.headline}</h3>
-  <p>${advantages.text}</p>
-</article>
+advantages.forEach(advantage => {
+let articleElement = document.createElement("article")
+    articleElement.classList.add('facility-card');
+
+  articleElement.innerHTML = `
+  <img src="${advantage.icon}" alt="${advantage.headline}">
+  <h3>${advantage.headline}</h3>
+  <p>${advantage.text}</p>
+
 `
+advantagesContainer.append(articleElement)
+})
+
   return advantagesContainer
 }

@@ -1,72 +1,60 @@
 /* link til data.js */
-import {footer} from './data.js'
+import { footer } from './data.js'
 
 export function renderFooter() {
+  // Opretter selve footer-elementet (ligesom facilitiesContainer i facilities.js)
+  const footerContainer = document.createElement('footer');
+  footerContainer.classList.add('footer');
 
-/* footer */
-const footerSection = document.querySelector('.footer');
+  // Indsæt toppen og brand-sektionen
+  const footerTop = document.createElement('div');
+  footerTop.classList.add('footer-top');
 
+  footerTop.innerHTML = `
+    <div class="footer-brand">
+      <h2>${footer.headline}</h2>
+      <p>${footer.tagline}</p>
+    </div>
+  `;
 
-const footerTop = document.createElement('div');
-footerTop.classList.add('footer-top');
+  // Løb igennem kolonnerne med forEach (ligesom facilities.options.forEach)
+  footer.columns.forEach(colData => {
+    const colElement = document.createElement('div');
+    colElement.classList.add('footer-col');
 
+    let linksHTML = '';
+    colData.links.forEach(linkText => {
+      linksHTML += `<li><a href="#">${linkText}</a></li>`;
+    });
 
-const brandCol = document.createElement('div');
-brandCol.classList.add('footer-brand');
+    colElement.innerHTML = `
+      <h3>${colData.title}</h3>
+      <ul>
+        ${linksHTML}
+      </ul>
+    `;
 
-const brandTitle = document.createElement('h2');
-brandTitle.textContent = footer.headline;
-
-const brandTagline = document.createElement('p');
-brandTagline.textContent = footer.tagline;
-
-brandCol.append(brandTitle, brandTagline);
-footerTop.append(brandCol);
-
-
-footer.columns.forEach(function(colData) {
-  const col = document.createElement('div');
-  col.classList.add('footer-col');
-
-  const colTitle = document.createElement('h3');
-  colTitle.textContent = colData.title;
-
-  const linkList = document.createElement('ul');
-
-  colData.links.forEach(function(linkText) {
-    const li = document.createElement('li');
-    const a = document.createElement('a');
-    a.href = '#';
-    a.textContent = linkText;
-    li.append(a);
-    linkList.append(li);
+    footerTop.append(colElement);
   });
 
-  col.append(colTitle, linkList);
-  footerTop.append(col);
-});
+  // Indsæt bunden
+  const footerBottom = document.createElement('div');
+  footerBottom.classList.add('footer-bottom');
 
+  let bottomLinksHTML = '';
+  footer.bottomLinks.forEach(linkText => {
+    bottomLinksHTML += `<li><a href="#">${linkText}</a></li>`;
+  });
 
-const footerBottom = document.createElement('div');
-footerBottom.classList.add('footer-bottom');
+  footerBottom.innerHTML = `
+    <p>${footer.copyright}</p>
+    <ul class="bottom-links">
+      ${bottomLinksHTML}
+    </ul>
+  `;
 
-const copyright = document.createElement('p');
-copyright.textContent = footer.copyright;
+  // Saml det hele i footerContainer og returnér
+  footerContainer.append(footerTop, footerBottom);
 
-const bottomNav = document.createElement('ul');
-bottomNav.classList.add('bottom-links');
-
-footer.bottomLinks.forEach(function(linkText) {
-  const li = document.createElement('li');
-  const a = document.createElement('a');
-  a.href = '#';
-  a.textContent = linkText;
-  li.append(a);
-  bottomNav.append(li);
-});
-
-footerBottom.append(copyright, bottomNav);
-
-footerSection.append(footerTop, footerBottom);
-
+  return footerContainer;
 }

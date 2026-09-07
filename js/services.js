@@ -1,41 +1,27 @@
 /* link til data.js */
 import {services} from './data.js'
 
-
 export function renderServices() {
-/* service section */
-
-const servicesSection = document.querySelector('.services');
 
 const servicesContainer = document.createElement('div');
 servicesContainer.classList.add('services-container');
 
+services.forEach(service => {
+  
+let articleElement = document.createElement("article")
+articleElement.classList.add('service-card')
 
-services.forEach(function(service) {
-  const serviceCard = document.createElement('article');
-  serviceCard.classList.add('service-card');
+articleElement.innerHTML = `
+<div class="service-image-wrapper">
+<img src="${service.illustration}" alt="${service.headline}">
+</div>
 
-  const imageWrapper = document.createElement('div');
-  imageWrapper.classList.add('service-image-wrapper');
+<h2>${service.headline}</h2>
+<p>${service.text}</p>
+<a href="#">${service.linktext}</a>
+`
+servicesContainer.append(articleElement)
+}); 
 
-  const image = document.createElement('img');
-  image.src = service.illustration;
-  image.alt = service.headline;
-  imageWrapper.append(image);
-
-  const headline = document.createElement('h2');
-  headline.textContent = service.headline;
-
-  const text = document.createElement('p');
-  text.textContent = service.text;
-
-  const link = document.createElement('a');
-  link.href = '#';
-  link.textContent = service.linktext;
-
-  serviceCard.append(imageWrapper, headline, text, link);
-  servicesContainer.append(serviceCard);
-});
-
-servicesSection.append(servicesContainer);
+return servicesContainer
 }
