@@ -149,10 +149,11 @@ img {
   margin-bottom: 100px;
 }
 
-.facilities > h2 {
+.facilities > .facilities-container > h2 {
   font-size: 1.8rem;
   margin-bottom: 40px;
   color: #111;
+  position: absolute;
 }
 
 .facilities-container {
@@ -165,6 +166,7 @@ img {
   width: 24px;
   height: 24px;
   margin-bottom: 20px;
+  margin-top: 100px;
 }
 
 .facility-card h3 {
@@ -263,10 +265,13 @@ img {
   margin-bottom: 100px;
 }
 
-.advantages > h2 {
+.advantages > .advantages-container > h2 {
   font-size: 1.8rem;
   margin-bottom: 40px;
   color: #111;
+  position: absolute;
+
+
 }
 
 .advantages-container {
