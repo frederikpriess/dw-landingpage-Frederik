@@ -7,6 +7,7 @@ import { renderFooter } from './footer.js';
 
 document.querySelector(".hero").append(renderHero())
 document.querySelector(".advantages").append(renderAdvantages())
+document.querySelector(".facilities").append(renderFacilities())
 
 /* ↓↓ - Render metoder - ↓↓ */
 
