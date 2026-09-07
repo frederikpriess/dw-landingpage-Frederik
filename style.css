@@ -200,6 +200,10 @@ img {
   margin-bottom: 100px;
 }
 
+.sites-info {
+  max-width: 300px;
+}
+
 .sites-info h2 {
   font-size: 2rem;
   line-height: 1.2;
@@ -231,10 +235,14 @@ img {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
+
+  width: 500px;
+  
+  
 }
 
 .place-card img {
-  width: 100%;
+  width: 120px;
   height: 320px;
   object-fit: cover;
   border-radius: 4px;
